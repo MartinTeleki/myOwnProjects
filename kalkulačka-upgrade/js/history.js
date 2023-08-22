@@ -1,16 +1,19 @@
 export class HistoryManager {
-  constructor(historyListElement) {
+  constructor(historyListElement, maxResults = 10) {
     this.historyList = historyListElement;
+    this.maxResults = maxResults;
     this.previousResults = [];
     this.resultCounter = 0;
-
-    console.log(this.previousResults);
   }
 
   appendToHistory(result) {
     const writeNumber = document.querySelector(".input--text-1");
     const historyContainer = document.querySelector(".history");
     this.resultNumberElement = document.querySelector(".result-number");
+
+    if (this.previousResults.length >= this.maxResults) {
+      return; // Pokud jsme již dosáhli limitu 10 výsledků, nepřidáváme další
+    }
 
     this.previousResults.push(result);
 
@@ -19,7 +22,7 @@ export class HistoryManager {
     const resultNumber = this.previousResults.length;
     listItem.classList.add("history-div");
 
-    listItem.textContent = `${resultNumber}.result: ${result}`;
+    listItem.textContent = `${resultNumber}. result: ${result}`;
     listItem.addEventListener("click", () => {
       // Při kliknutí na výsledek v historii se vepíše do textového pole
       writeNumber.value += result;
