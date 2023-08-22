@@ -16,7 +16,7 @@ export class HistoryManager {
     listItem.textContent = result;
     listItem.addEventListener("click", () => {
       // Při kliknutí na výsledek v historii se vepíše do textového pole
-      writeNumber.value = result;
+      writeNumber.value += result;
       writeNumber.focus();
     });
     historyContainer.style.opacity = 1;

@@ -134,6 +134,7 @@ img {
 
 .history {
   /* margin-top: 20px; */
+  max-height: 552px;
   padding: 20px;
   border: 1px solid var(--primary-border-color);
   background-color: var(--secondary-bg-color);
@@ -143,6 +144,8 @@ img {
   transition: opacity 1s linear;
   opacity: 0;
   position: relative;
+  border-radius: 4px;
+  overflow: auto;
 }
 
 .history h2 {
@@ -160,6 +163,7 @@ img {
   text-align: center;
   transition: opacity 1s linear;
   /* border: 2px solid var(--primary-border-color); */
+  border-radius: 4px;
 }
 
 .history-div {
