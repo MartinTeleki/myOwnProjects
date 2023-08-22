@@ -11,6 +11,7 @@
 }
 
 body {
+  font-family: Arial, Helvetica, sans-serif;
   background-color: var(--body-bg-color);
   margin: 0;
   padding: 0;
@@ -96,10 +97,11 @@ body {
   border: 2px solid var(--primary-border-color);
   padding: 10px;
   margin-top: 20px;
-  width: 100px;
+  width: 120px;
   color: var(--primary-border-color);
   background-color: var(--secondary-bg-color);
   border-radius: 4px;
+  text-transform: uppercase;
 }
 
 img {
@@ -187,6 +189,14 @@ img {
 }
 
 .img--button-close {
+  width: 15px;
+  height: 15px;
+}
+
+.img-number {
+  width: 0;
+  height: 0;
+
   width: 15px;
   height: 15px;
 }
