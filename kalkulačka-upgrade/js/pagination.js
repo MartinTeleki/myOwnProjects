@@ -4,9 +4,23 @@ export function setupPagination(historyPages) {
 
   let currentPage = 0;
 
+  function paginateResults(results, resultsPerPage) {
+    const paginatedResults = [];
+    for (let i = 0; i < results.length; i += resultsPerPage) {
+      paginatedResults.push(results.slice(i, i + resultsPerPage));
+    }
+    return paginatedResults;
+  }
+
   function updatePaginationButtons() {
     paginationBack.disabled = currentPage === 0;
     paginationForward.disabled = currentPage === historyPages.length - 1;
+  }
+
+  function updateHistoryPageDisplay() {
+    historyPages.forEach((page, index) => {
+      page.style.display = index === currentPage ? "block" : "none";
+    });
   }
 
   paginationBack.addEventListener("click", () => {
@@ -24,12 +38,6 @@ export function setupPagination(historyPages) {
       updateHistoryPageDisplay();
     }
   });
-
-  function updateHistoryPageDisplay() {
-    historyPages.forEach((page, index) => {
-      page.style.display = index === currentPage ? "block" : "none";
-    });
-  }
 
   updatePaginationButtons();
   updateHistoryPageDisplay();

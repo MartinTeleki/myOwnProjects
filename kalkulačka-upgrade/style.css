@@ -135,7 +135,7 @@ img {
 .history {
   /* margin-top: 20px; */
   max-height: 552px;
-
+  max-width: 300px;
   padding-top: 20px;
   border: 1px solid var(--primary-border-color);
   background-color: var(--secondary-bg-color);
@@ -147,6 +147,7 @@ img {
   position: relative;
   border-radius: 4px;
   overflow-y: auto;
+  overflow-x: auto;
 }
 
 .history h2 {
@@ -168,6 +169,9 @@ img {
 }
 
 .history-div {
+  max-width: 300px;
+  max-height: 60px;
+  overflow-x: auto;
   font-size: 16px;
   margin: 10px;
   padding: 0px 10px;
@@ -179,6 +183,7 @@ img {
   border-radius: 4px;
   cursor: pointer;
   transform: scale(0.96);
+  text-align: justify;
 }
 
 .history-div:hover {

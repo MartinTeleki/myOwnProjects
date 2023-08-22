@@ -1,5 +1,5 @@
 export class HistoryManager {
-  constructor(historyListElement, maxResults = 10) {
+  constructor(historyListElement, maxResults = 13) {
     this.historyList = historyListElement;
     this.maxResults = maxResults;
     this.previousResults = [];
@@ -12,7 +12,7 @@ export class HistoryManager {
     this.resultNumberElement = document.querySelector(".result-number");
 
     if (this.previousResults.length >= this.maxResults) {
-      return; // Pokud jsme již dosáhli limitu 10 výsledků, nepřidáváme další
+      return;
     }
 
     this.previousResults.push(result);
@@ -24,7 +24,6 @@ export class HistoryManager {
 
     listItem.textContent = `${resultNumber}. result: ${result}`;
     listItem.addEventListener("click", () => {
-      // Při kliknutí na výsledek v historii se vepíše do textového pole
       writeNumber.value += result;
       writeNumber.focus();
     });

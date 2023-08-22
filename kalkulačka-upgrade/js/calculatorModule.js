@@ -43,6 +43,8 @@ export function initializeCalculator() {
   calculateResult.addEventListener("click", () => {
     historyManager.clearHistory();
     performanceCalculation(historyManager, writeNumber, displayResult);
+    writeNumber.focus();
+
     //console.log(historyManager, writeNumber, displayResult);
   });
 
