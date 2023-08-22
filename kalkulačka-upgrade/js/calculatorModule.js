@@ -8,8 +8,31 @@ export function initializeCalculator() {
   const writeNumber = document.querySelector(".input--text-1");
   const calculateResult = document.querySelector(".btn--result");
   const displayResult = document.querySelector(".result");
+  const historyItems = historyList.querySelectorAll(".history-div");
 
   const historyManager = new HistoryManager(historyList);
+
+  const buttons = [
+    { element: document.querySelector(".btn--plus"), symbol: "+" },
+    { element: document.querySelector(".btn--minus"), symbol: "-" },
+    { element: document.querySelector(".btn--times"), symbol: "*" },
+    { element: document.querySelector(".btn--divided"), symbol: "/" },
+    { element: document.querySelector(".btn--openBracket"), symbol: "(" },
+    { element: document.querySelector(".btn--closeBracket"), symbol: ")" },
+    { element: document.querySelector(".btn--percent"), symbol: "%" },
+    { element: document.querySelector(".btn--dot"), symbol: "." },
+    { element: document.querySelector(".btn--equals"), symbol: "=" },
+    { element: document.querySelector(".btn--zero"), symbol: "0" },
+    { element: document.querySelector(".btn--one"), symbol: "1" },
+    { element: document.querySelector(".btn--two"), symbol: "2" },
+    { element: document.querySelector(".btn--three"), symbol: "3" },
+    { element: document.querySelector(".btn--four"), symbol: "4" },
+    { element: document.querySelector(".btn--five"), symbol: "5" },
+    { element: document.querySelector(".btn--six"), symbol: "6" },
+    { element: document.querySelector(".btn--seven"), symbol: "7" },
+    { element: document.querySelector(".btn--eight"), symbol: "8" },
+    { element: document.querySelector(".btn--nine"), symbol: "9" },
+  ];
 
   // Attach event listeners
   const closeButton = document.querySelector(".btn--close");
@@ -41,6 +64,18 @@ export function initializeCalculator() {
 
   // Attach other event listeners
   attachEventListeners(historyManager, writeNumber, displayResult);
+
+  historyItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      const historyText = item.textContent;
+
+      writeNumber.value = historyText;
+      writeNumber.focus();
+
+      // Aktualizujte event listenery
+      updateEventListeners(historyManager, writeNumber, displayResult);
+    });
+  });
 
   function performanceCalculation(historyMgr, writeNumber, displayResult) {
     try {
@@ -87,5 +122,27 @@ export function initializeCalculator() {
   function handleDeleteNumber() {
     writeNumber.value = "";
     writeNumber.focus();
+  }
+
+  function updateEventListeners(historyManager, writeNumber, displayResult) {
+    // Odstraňte existující event listenery
+    buttons.forEach(({ element }) => {
+      element.removeEventListener("click", buttonClickHandler);
+    });
+
+    // Vytvořte nové event listenery s aktuálním obsahem textového pole
+    buttons.forEach(({ element, symbol }) => {
+      element.addEventListener("click", () => {
+        buttonClickHandler(symbol);
+      });
+    });
+
+    function buttonClickHandler(symbol) {
+      if (symbol === "=") {
+        performanceCalculation(historyManager, writeNumber, displayResult);
+      } else {
+        appendSymbol(symbol, writeNumber);
+      }
+    }
   }
 }

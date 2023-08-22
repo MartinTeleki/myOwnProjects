@@ -6,12 +6,19 @@ export class HistoryManager {
   }
 
   appendToHistory(result) {
+    const writeNumber = document.querySelector(".input--text-1");
     const historyContainer = document.querySelector(".history");
+
     this.previousResults.push(result);
     this.firstDisplay = true;
-    const listItem = document.createElement("li");
-    listItem.classList.add("history-li");
+    const listItem = document.createElement("div");
+    listItem.classList.add("history-div");
     listItem.textContent = result;
+    listItem.addEventListener("click", () => {
+      // Při kliknutí na výsledek v historii se vepíše do textového pole
+      writeNumber.value = result;
+      writeNumber.focus();
+    });
     historyContainer.style.opacity = 1;
     this.historyList.appendChild(listItem);
 

@@ -29,6 +29,8 @@ export function attachEventListeners(
     element.addEventListener("click", () => {
       if (symbol === "=") {
         performCalculation(historyManager, writeNumber, displayResult);
+      } else if (symbol === "e.key") {
+        // Kód pro další operace
       } else {
         appendSymbol(symbol, writeNumber);
       }
