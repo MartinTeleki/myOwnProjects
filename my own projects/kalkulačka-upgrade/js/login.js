@@ -48,7 +48,7 @@ export class LoginManager {
     );
 
     if (validLogin) {
-      this.loginForm.style.display = "none";
+      this.container1.style.display = "none";
       this.container.style.display = "block";
       this.container.style.pointerEvents = "";
       this.container1.style.opacity = 0;
@@ -109,8 +109,11 @@ export class LoginManager {
   logout() {
     this.container2.style.display = "none";
     this.container.style.display = "none";
+    this.btnLogout.style.display = "none";
+    this.historyContainer.style.display = "none";
     this.container1.style.display = "block";
     this.container1.style.opacity = "1";
-    this.btnLogout.style.display = "none";
+    this.nameInput.value = "";
+    this.passwordInput.value = "";
   }
 }

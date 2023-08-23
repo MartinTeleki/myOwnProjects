@@ -1,6 +1,6 @@
 export class RegistrationManager {
   constructor() {
-    this.container = document.querySelector(".container");
+    this.container = document.querySelector(".container-");
     this.container1 = document.querySelector(".container-1");
     this.container2 = document.querySelector(".container-2");
     this.navLogin = document.querySelector(".nav-login");
