@@ -1,5 +1,5 @@
 export class HistoryManager {
-  constructor(historyListElement, maxResults = 13) {
+  constructor(historyListElement, maxResults = 50) {
     this.historyList = historyListElement;
     this.maxResults = maxResults;
     this.previousResults = [];
@@ -28,6 +28,7 @@ export class HistoryManager {
       writeNumber.focus();
     });
     historyContainer.style.opacity = 1;
+    historyContainer.style.display = "block"
     this.historyList.appendChild(listItem);
 
     const delay = this.firstDisplay ? 700 : 350;
