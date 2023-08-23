@@ -36,7 +36,11 @@ export class LoginManager {
     const password = this.passwordInput.value;
 
     const validLogin = this.loginInfo.some(
-      (info) => info.username === username && info.password === password
+      (info) =>
+        info.username === username &&
+        info.password === password &&
+        info.username !== "" &&
+        info.password !== ""
     );
 
     if (validLogin) {
@@ -60,14 +64,22 @@ export class LoginManager {
     const userData = { username: usernameData, password: passwordData };
     this.loginInfo.push(userData);
 
-    console.log("Data before localStorage:", this.loginInfo);
+    if (
+      usernameData.includes(" ") ||
+      passwordData.includes(" ") ||
+      (usernameData.includes(" ") && passwordData.includes(" "))
+    ) {
+      alert("Žádné mezery pls :).");
+    } else {
+      //console.log("Data before localStorage:", this.loginInfo);
 
-    this.registerName.value = "";
-    this.registerPassword.value = "";
-    this.container2.style.display = "none";
-    this.container1.style.display = "block";
+      this.registerName.value = "";
+      this.registerPassword.value = "";
+      this.container2.style.display = "none";
+      this.container1.style.display = "block";
 
-    localStorage.setItem("loginInfo", JSON.stringify(this.loginInfo));
+      localStorage.setItem("loginInfo", JSON.stringify(this.loginInfo));
+    }
   }
 
   loadLoginInfoFromStorage() {
