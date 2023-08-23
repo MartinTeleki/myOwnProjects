@@ -38,6 +38,7 @@ export function initializeCalculator() {
   const closeButton = document.querySelector(".btn--close");
   closeButton.addEventListener("click", () => {
     historyContainer.style.opacity = 0;
+    historyContainer.style.display = "none"
   });
 
   calculateResult.addEventListener("click", () => {
