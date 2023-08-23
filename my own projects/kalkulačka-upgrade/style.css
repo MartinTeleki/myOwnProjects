@@ -4,7 +4,7 @@
   --secondary-bg-color: white;
   --primary-btn-color: #f0f0f0;
   --secondary-btn-color: #e0e0e0;
-  --primary-span-color:  lightblue;
+  --primary-span-color: lightblue;
 }
 
 * {
@@ -195,7 +195,7 @@ img {
 }
 
 .history-div:hover {
-  background-color: var(--primary-btn-color)
+  background-color: var(--primary-btn-color);
 }
 
 .btn--close {
@@ -258,8 +258,8 @@ img {
   height: 15px;
 } */
 /* .login-container { */
-  /* border: 2px solid black; */
-  /* display: flex;
+/* border: 2px solid black; */
+/* display: flex;
   position: relative;
   justify-content: center;
   align-items: center;
@@ -304,9 +304,7 @@ img {
   color: var(--secondary-bg-color);
   position: flex;
   opacity: 1;
-  z-index: 1000;
   display: none;
-  
 }
 
 .container-1 h1 {
@@ -356,7 +354,7 @@ img {
   width: 100%;
   padding: 15px 0;
   font-size: 18px;
-  color: var(--secondary-bg-color)
+  color: var(--secondary-bg-color);
 }
 
 .form-control-1 input:focus,
@@ -386,7 +384,6 @@ img {
   transform: translateY(-30px);
 }
 /*  */
-
 
 .container-2 {
   position: absolute;
@@ -452,15 +449,14 @@ img {
   width: 100%;
   padding: 15px 0;
   font-size: 18px;
-  color: var(--secondary-bg-color)
+  color: var(--secondary-bg-color);
 }
 
 .form-control-2 input:focus,
 .form-control-2 input:valid {
   border-color: transparent;
   outline: 0;
-  border-bottom-color:var(--primary-btn-color);
-  
+  border-bottom-color: var(--primary-btn-color);
 }
 
 .form-control-2 label {
@@ -468,7 +464,6 @@ img {
   top: 15px;
   left: 0px;
   pointer-events: none;
-  
 }
 
 .form-control-2 label span {
@@ -482,6 +477,30 @@ img {
 .form-control-2 input:valid + label span {
   color: var(--primary-span-color);
   transform: translateY(-30px);
-  
 }
 
+/* logout */
+
+.user-info {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.welcome-message {
+  margin-right: 10px;
+}
+
+.btn--logout {
+  padding: 8px 16px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: var(--secondary-bg-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transform: scale(0.88);
+  display: none;
+  transition: linear 1s ease;
+}

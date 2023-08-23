@@ -12,6 +12,9 @@ export class LoginManager {
     this.btnRegister = document.querySelector(".btn-register");
     this.registerName = document.querySelector("#register-name");
     this.registerPassword = document.querySelector("#register-password");
+    this.inputText = document.querySelector(".input--text-1");
+    this.btnLogout = document.querySelector(".btn--logout");
+    this.historyContainer = document.querySelector(".history");
 
     this.loginInfo = [];
     this.loadLoginInfoFromStorage();
@@ -28,6 +31,7 @@ export class LoginManager {
 
     this.loginButton.addEventListener("click", this.login.bind(this));
     this.btnRegister.addEventListener("click", this.register.bind(this));
+    this.btnLogout.addEventListener("click", this.logout.bind(this));
   }
 
   login(e) {
@@ -48,8 +52,14 @@ export class LoginManager {
       this.container.style.display = "block";
       this.container.style.pointerEvents = "";
       this.container1.style.opacity = 0;
-      this.container1.style.zIndex = -1000;
+
       this.container.style.opacity = 1;
+      this.btnLogout.style.display = "block";
+      this.inputText.textContent = `Welcome ${username}`;
+      const inputTextElement = document.querySelector(".input--text-1");
+      if (inputTextElement) {
+        inputTextElement.value = `Welcome ${username.toUpperCase()}`;
+      }
     } else {
       alert("Invalid username or password");
     }
@@ -64,6 +74,11 @@ export class LoginManager {
     const userData = { username: usernameData, password: passwordData };
     this.loginInfo.push(userData);
 
+    if (!usernameData || !passwordData) {
+      alert("Vyplňte prosím jak jméno, tak heslo.");
+      return;
+    }
+
     if (
       usernameData.includes(" ") ||
       passwordData.includes(" ") ||
@@ -75,7 +90,9 @@ export class LoginManager {
 
       this.registerName.value = "";
       this.registerPassword.value = "";
+      this.container.style.display = "none";
       this.container2.style.display = "none";
+      this.historyContainer.style.display = "none";
       this.container1.style.display = "block";
 
       localStorage.setItem("loginInfo", JSON.stringify(this.loginInfo));
@@ -87,5 +104,13 @@ export class LoginManager {
     if (storedLoginInfo) {
       this.loginInfo = JSON.parse(storedLoginInfo);
     }
+  }
+
+  logout() {
+    this.container2.style.display = "none";
+    this.container.style.display = "none";
+    this.container1.style.display = "block";
+    this.container1.style.opacity = "1";
+    this.btnLogout.style.display = "none";
   }
 }
