@@ -30,6 +30,7 @@ body {
   background-color: var(--secondary-bg-color);
   border-radius: 4px;
   opacity: 0;
+  display: none;
 }
 
 .form {
@@ -151,6 +152,7 @@ img {
   align-items: center;
   transition: opacity 1s linear;
   opacity: 0;
+  display: none;
   position: relative;
   border-radius: 4px;
   overflow-y: auto;
@@ -191,6 +193,7 @@ img {
   cursor: pointer;
   transform: scale(0.96);
   text-align: justify;
+  
 }
 
 .history-div:hover {
@@ -230,7 +233,7 @@ img {
   height: 15px;
 }
 
-.pagination {
+/* .pagination {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -255,7 +258,7 @@ img {
 .pagination-forward img {
   width: 15px;
   height: 15px;
-}
+} */
 /* .login-container { */
   /* border: 2px solid black; */
   /* display: flex;

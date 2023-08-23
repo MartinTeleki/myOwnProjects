@@ -12,7 +12,6 @@ export function initializeLogin() {
     { username: "jana", password: "kočka" },
     { username: "zdenda", password: "špaček" },
     { username: "tonda", password: "čáp" },
-    
   ];
 
   loginButton.addEventListener("click", (e) => {

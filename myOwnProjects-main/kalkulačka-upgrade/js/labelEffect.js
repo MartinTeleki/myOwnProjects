@@ -1,6 +1,6 @@
 export function applyLabelEffect() {
     const labels = document.querySelectorAll(".form-control-1 label");
-  
+
     labels.forEach((label) => {
       label.innerHTML = label.textContent
         .split("")

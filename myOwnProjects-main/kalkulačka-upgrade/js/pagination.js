@@ -1,44 +1,50 @@
-export function setupPagination(historyPages) {
-  const paginationBack = document.querySelector(".pagination-back");
-  const paginationForward = document.querySelector(".pagination-forward");
+// class HistoryPagination {
+//   constructor(results, itemsPerPage) {
+//     this.results = results;
+//     this.itemsPerPage = itemsPerPage;
+//     this.currentPage = 1;
+//     this.paginatedResults = this.paginateResults();
+//     this.historyList = document.querySelector(".history-list");
+//     this.prevButton = document.querySelector(".pagination-back");
+//     this.nextButton = document.querySelector(".pagination-forward");
+    
+//     this.prevButton.addEventListener("click", this.prevPage.bind(this));
+//     this.nextButton.addEventListener("click", this.nextPage.bind(this));
+    
+//     this.displayPage(this.paginatedResults[this.currentPage - 1]);
+//   }
 
-  let currentPage = 0;
+//   paginateResults() {
+//     const paginatedResults = [];
+//     for (let i = 0; i < this.results.length; i += this.itemsPerPage) {
+//       paginatedResults.push(this.results.slice(i, i + this.itemsPerPage));
+//     }
+//     return paginatedResults;
+//   }
 
-  function paginateResults(results, resultsPerPage) {
-    const paginatedResults = [];
-    for (let i = 0; i < results.length; i += resultsPerPage) {
-      paginatedResults.push(results.slice(i, i + resultsPerPage));
-    }
-    return paginatedResults;
-  }
+//   displayPage(pageResults) {
+//     this.historyList.innerHTML = "";
+//     pageResults.forEach(result => {
+//       const div = document.createElement("div");
+//       div.textContent = result;
+//       this.historyList.appendChild(div);
+//     });
+//   }
 
-  function updatePaginationButtons() {
-    paginationBack.disabled = currentPage === 0;
-    paginationForward.disabled = currentPage === historyPages.length - 1;
-  }
+//   prevPage() {
+//     if (this.currentPage > 1) {
+//       this.currentPage--;
+//       this.displayPage(this.paginatedResults[this.currentPage - 1]);
+//     }
+//   }
 
-  function updateHistoryPageDisplay() {
-    historyPages.forEach((page, index) => {
-      page.style.display = index === currentPage ? "block" : "none";
-    });
-  }
+//   nextPage() {
+//     if (this.currentPage < this.paginatedResults.length) {
+//       this.currentPage++;
+//       this.displayPage(this.paginatedResults[this.currentPage - 1]);
+//     }
+//   }
+// }
 
-  paginationBack.addEventListener("click", () => {
-    if (currentPage > 0) {
-      currentPage--;
-      updatePaginationButtons();
-      updateHistoryPageDisplay();
-    }
-  });
-
-  paginationForward.addEventListener("click", () => {
-    if (currentPage < historyPages.length - 1) {
-      currentPage++;
-      updatePaginationButtons();
-      updateHistoryPageDisplay();
-    }
-  });
-
-  updatePaginationButtons();
-  updateHistoryPageDisplay();
-}
+// // Inicializace třídy s historickými výsledky
+// const historyPagination = new HistoryPagination(yourResultsArray, itemsPerPage);
