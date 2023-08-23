@@ -256,9 +256,9 @@ img {
   width: 15px;
   height: 15px;
 }
-.login-container {
+/* .login-container { */
   /* border: 2px solid black; */
-  display: flex;
+  /* display: flex;
   position: relative;
   justify-content: center;
   align-items: center;
@@ -288,7 +288,7 @@ img {
   color: white;
   border: none;
   cursor: pointer;
-}
+} */
 
 /* přihlášení */
 
@@ -296,7 +296,10 @@ img {
   background-color: rgba(0, 0, 0, 0.5);
   padding: 20px 40px;
   border-radius: 20px;
-  color: var(--secondary-bg-color)
+  color: var(--secondary-bg-color);
+  position: flex;
+  opacity: 1;
+  
 }
 
 .container-1 h1 {
@@ -309,7 +312,7 @@ img {
   color: lightblue;
 }
 
-.btn-1 {
+.btn-login {
   cursor: pointer;
   display: inline-block;
   width: 100%;
@@ -320,11 +323,11 @@ img {
   border-radius: 2px;
 }
 
-.btn-1:focus {
+.btn-login:focus {
   outline: 0;
 }
 
-.btn-1:active {
+.btn-login:active {
   transform: scale(0.88);
 }
 
