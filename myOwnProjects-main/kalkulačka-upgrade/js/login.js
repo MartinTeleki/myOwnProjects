@@ -6,6 +6,9 @@ export function initializeLogin() {
   const loginForm = document.querySelector(".form-control-1");
   const container = document.querySelector(".container");
   const container1 = document.querySelector(".container-1");
+  const container2 = document.querySelector(".container-2");
+  const navLogin = document.querySelector(".nav-login")
+ 
 
   const loginInfo = [
     { username: "martin", password: "pes" },
@@ -33,5 +36,7 @@ export function initializeLogin() {
     } else {
       alert("Invalid username or password");
     }
+
+  
   });
 }
