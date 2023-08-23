@@ -1,5 +1,3 @@
-// login.js
-// import { RegistrationManager } from "./register";
 export class LoginManager {
   constructor() {
     this.labels = document.querySelectorAll(".form-control-1 label");
@@ -15,7 +13,7 @@ export class LoginManager {
     this.registerPassword = document.querySelector("#register-password");
 
     this.loginInfo = [];
-    console.log(this.loginInfo);
+    this.loadLoginInfoFromStorage(); // Načtení dat z localStorage
 
     this.labels.forEach((label) => {
       label.innerHTML = label.textContent
@@ -61,9 +59,18 @@ export class LoginManager {
     const userData = { username: usernameData, password: passwordData };
     this.loginInfo.push(userData);
 
+    console.log("Data before localStorage:", this.loginInfo);
+
     this.registerName.value = "";
     this.registerPassword.value = "";
 
-    //console.log(username, password);
+    localStorage.setItem("loginInfo", JSON.stringify(this.loginInfo));
+  }
+
+  loadLoginInfoFromStorage() {
+    const storedLoginInfo = localStorage.getItem("loginInfo");
+    if (storedLoginInfo) {
+      this.loginInfo = JSON.parse(storedLoginInfo);
+    }
   }
 }

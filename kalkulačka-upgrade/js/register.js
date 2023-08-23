@@ -34,22 +34,5 @@ export class RegistrationManager {
         )
         .join("");
     });
-
-    // this.btnRegister.addEventListener("click", this.register.bind(this));
   }
-
-  // register(e) {
-  //   e.preventDefault();
-
-  //   const usernameData = this.registerName.value.toLowerCase();
-  //   const passwordData = this.registerPassword.value;
-
-  //   const userData = { username: usernameData, password: passwordData };
-  //   this.registrationInfo.push(userData);
-
-  //   this.registerName.value = "";
-  //   this.registerPassword.value = "";
-
-  //   //console.log(username, password);
-  // }
 }
