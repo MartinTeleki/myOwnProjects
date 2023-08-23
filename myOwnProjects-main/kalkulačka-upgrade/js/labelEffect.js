@@ -11,3 +11,7 @@ export function applyLabelEffect() {
         .join("");
     });
   }
+
+  export function applyLabelEffect2(){
+    
+  }

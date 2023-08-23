@@ -363,7 +363,7 @@ img {
 .form-control-1 input:valid {
   border-color: transparent;
   outline: 0;
-  color: var(--primary-span-color);
+  color: var(--secondary-bg-color);
 }
 
 .form-control-1 label {
