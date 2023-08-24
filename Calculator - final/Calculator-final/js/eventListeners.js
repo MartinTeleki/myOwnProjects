@@ -30,14 +30,12 @@ export function attachEventListeners(
       if (symbol === "=") {
         performCalculation(historyManager, writeNumber, displayResult);
       } else if (symbol === "e.key") {
-        // Kód pro další operace
       } else {
         appendSymbol(symbol, writeNumber);
       }
     });
   });
 
-  // Přidejte poslech klávesy Enter na celé stránce
   document.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       e.preventDefault();

@@ -2,7 +2,6 @@ import { HistoryManager } from "./history.js";
 import { attachEventListeners } from "./eventListeners.js";
 
 export function initializeCalculator() {
-  // Select DOM elements
   const historyContainer = document.querySelector(".history");
   const historyList = document.querySelector(".history-list");
   const writeNumber = document.querySelector(".input--text-1");
@@ -37,7 +36,6 @@ export function initializeCalculator() {
     { element: document.querySelector(".btn--nine"), symbol: "9" },
   ];
 
-  // Attach event listeners
   const closeButton = document.querySelector(".btn--close");
   closeButton.addEventListener("click", () => {
     historyContainer.style.opacity = 0;
@@ -48,8 +46,6 @@ export function initializeCalculator() {
     historyManager.clearHistory();
     performanceCalculation(historyManager, writeNumber, displayResult);
     writeNumber.focus();
-
-    //console.log(historyManager, writeNumber, displayResult);
   });
 
   displayResult.addEventListener("keydown", (e) => {
@@ -68,7 +64,6 @@ export function initializeCalculator() {
     handleDeleteNumber();
   });
 
-  // Attach other event listeners
   attachEventListeners(historyManager, writeNumber, displayResult);
 
   historyItems.forEach((item) => {
@@ -78,7 +73,6 @@ export function initializeCalculator() {
       writeNumber.value = historyText;
       writeNumber.focus();
 
-      // Aktualizujte event listenery
       updateEventListeners(historyManager, writeNumber, displayResult);
     });
   });
@@ -151,7 +145,7 @@ export function initializeCalculator() {
   }
 
   equals.addEventListener("click", (e) => {
-    console.log("pes"); // Toto by mělo fungovat a vypsat "pes" do konzole
+    console.log("pes");
 
     if (inputText === "") {
       historyContainer.style.display = "none";
