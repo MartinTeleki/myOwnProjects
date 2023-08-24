@@ -16,9 +16,11 @@ export class RegistrationManager {
       "#show-password-register"
     );
     this.passwordInput = document.querySelector("#register-password");
+    console.log(this.registrationInfo);
 
     this.navLogin.addEventListener("click", (e) => {
       e.preventDefault();
+      console.log("pes");
       this.historyContainer.style.display = "none";
       this.container2.style.display = "none";
       this.container1.style.display = "block";
@@ -26,6 +28,7 @@ export class RegistrationManager {
 
     this.navRegister.addEventListener("click", (e) => {
       e.preventDefault();
+      console.log("pes");
       this.historyContainer.style.display = "none";
       this.container.style.display = "none";
       this.container1.style.display = "none";
@@ -43,52 +46,12 @@ export class RegistrationManager {
     });
 
     this.showPasswordCheckbox.addEventListener("change", () => {
+      console.log("pes");
       if (this.showPasswordCheckbox.checked) {
         this.passwordInput.type = "text";
       } else {
         this.passwordInput.type = "password";
       }
     });
-
-    this.loadRegistrationInfoFromStorage();
-    this.btnRegister.addEventListener("click", this.register.bind(this));
-  }
-
-  register(e) {
-    e.preventDefault();
-
-    const usernameData = this.registerName.value.toLowerCase();
-    const passwordData = this.registerPassword.value;
-
-    if (this.isUsernameTaken(usernameData)) {
-      alert("This username is already taken.");
-      return;
-    }
-
-    const userData = { username: usernameData, password: passwordData };
-    this.registrationInfo.push(userData);
-
-    this.registerName.value = "";
-    this.registerPassword.value = "";
-    this.container.style.display = "none";
-    this.container2.style.display = "none";
-    this.historyContainer.style.display = "none";
-    this.container1.style.display = "block";
-
-    localStorage.setItem(
-      "registrationInfo",
-      JSON.stringify(this.registrationInfo)
-    );
-  }
-
-  isUsernameTaken(username) {
-    return this.registrationInfo.some((info) => info.username === username);
-  }
-
-  loadRegistrationInfoFromStorage() {
-    const storedRegistrationInfo = localStorage.getItem("registrationInfo");
-    if (storedRegistrationInfo) {
-      this.registrationInfo = JSON.parse(storedRegistrationInfo);
-    }
   }
 }
