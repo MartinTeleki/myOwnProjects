@@ -15,6 +15,7 @@ export class LoginManager {
     this.inputText = document.querySelector(".input--text-1");
     this.btnLogout = document.querySelector(".btn--logout");
     this.historyContainer = document.querySelector(".history");
+    this.welcomeText = document.querySelector(".welcome-message");
 
     this.loginInfo = [];
     this.loadLoginInfoFromStorage();
@@ -52,14 +53,9 @@ export class LoginManager {
       this.container.style.display = "block";
       this.container.style.pointerEvents = "";
       this.container1.style.opacity = 0;
-
       this.container.style.opacity = 1;
       this.btnLogout.style.display = "block";
-      this.inputText.textContent = `Welcome ${username}`;
-      const inputTextElement = document.querySelector(".input--text-1");
-      if (inputTextElement) {
-        inputTextElement.value = `Welcome ${username.toUpperCase()}`;
-      }
+      this.welcomeText.innerHTML = `Welcome <br> ${username.toUpperCase()}`;
     } else {
       alert("Invalid username or password");
     }
@@ -72,7 +68,6 @@ export class LoginManager {
     const passwordData = this.registerPassword.value;
 
     const userData = { username: usernameData, password: passwordData };
-    this.loginInfo.push(userData);
 
     if (!usernameData || !passwordData) {
       alert("Vyplňte prosím jak jméno, tak heslo.");
@@ -85,18 +80,29 @@ export class LoginManager {
       (usernameData.includes(" ") && passwordData.includes(" "))
     ) {
       alert("Žádné mezery pls :).");
-    } else {
-      //console.log("Data before localStorage:", this.loginInfo);
-
-      this.registerName.value = "";
-      this.registerPassword.value = "";
-      this.container.style.display = "none";
-      this.container2.style.display = "none";
-      this.historyContainer.style.display = "none";
-      this.container1.style.display = "block";
-
-      localStorage.setItem("loginInfo", JSON.stringify(this.loginInfo));
+      return;
     }
+
+    if (usernameData.length < 5 || usernameData.length > 12) {
+      alert("Jméno musí mít délku 5 až 12 znaků.");
+      return;
+    }
+
+    if (passwordData.length < 5 || passwordData.length > 12) {
+      alert("Heslo musí mít délku 5 až 12 znaků.");
+      return;
+    }
+
+    this.loginInfo.push(userData);
+
+    this.registerName.value = "";
+    this.registerPassword.value = "";
+    this.container.style.display = "none";
+    this.container2.style.display = "none";
+    this.historyContainer.style.display = "none";
+    this.container1.style.display = "block";
+
+    localStorage.setItem("loginInfo", JSON.stringify(this.loginInfo));
   }
 
   loadLoginInfoFromStorage() {
@@ -115,5 +121,6 @@ export class LoginManager {
     this.container1.style.opacity = "1";
     this.nameInput.value = "";
     this.passwordInput.value = "";
+    this.welcomeText.textContent = "";
   }
 }

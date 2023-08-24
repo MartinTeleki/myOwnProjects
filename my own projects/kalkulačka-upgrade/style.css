@@ -492,6 +492,11 @@ img {
 
 .welcome-message {
   margin-right: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  color: var(--secondary-bg-color);
+  text-align: center;
+  padding: 3px 8px;
 }
 
 .btn--logout {
