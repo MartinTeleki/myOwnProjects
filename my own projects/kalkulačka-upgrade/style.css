@@ -304,6 +304,7 @@ img {
   color: var(--secondary-bg-color);
   position: flex;
   opacity: 1;
+  z-index: 1;
   display: none;
 }
 
