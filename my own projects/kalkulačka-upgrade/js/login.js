@@ -16,7 +16,8 @@ export class LoginManager {
     this.btnLogout = document.querySelector(".btn--logout");
     this.historyContainer = document.querySelector(".history");
     this.welcomeText = document.querySelector(".welcome-message");
-
+    this.showPasswordCheckbox = document.querySelector("#show-password-login");
+    this.welcomeMessage = document.querySelector(".welcome-message");
     this.loginInfo = [];
     this.loadLoginInfoFromStorage();
 
@@ -33,6 +34,14 @@ export class LoginManager {
     this.loginButton.addEventListener("click", this.login.bind(this));
     this.btnRegister.addEventListener("click", this.register.bind(this));
     this.btnLogout.addEventListener("click", this.logout.bind(this));
+
+    this.showPasswordCheckbox.addEventListener("change", () => {
+      if (this.showPasswordCheckbox.checked) {
+        this.passwordInput.type = "text";
+      } else {
+        this.passwordInput.type = "password";
+      }
+    });
   }
 
   login(e) {
@@ -54,6 +63,7 @@ export class LoginManager {
       this.container.style.pointerEvents = "";
       this.container1.style.opacity = 0;
       this.container.style.opacity = 1;
+      this.welcomeMessage.style.display = "block";
       this.btnLogout.style.display = "block";
       this.welcomeText.innerHTML = `Welcome <br> ${username.toUpperCase()}`;
     } else {
@@ -122,5 +132,6 @@ export class LoginManager {
     this.nameInput.value = "";
     this.passwordInput.value = "";
     this.welcomeText.textContent = "";
+    this.welcomeMessage.style.display = "none";
   }
 }

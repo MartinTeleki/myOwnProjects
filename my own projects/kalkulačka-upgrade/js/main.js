@@ -6,8 +6,7 @@ import { LoginManager } from "./login.js";
 
 const historyPages = document.querySelectorAll(".history-page");
 const registrationManager = new RegistrationManager();
-const loginManager = new LoginManager()
+const loginManager = new LoginManager();
 initializeCalculator();
 
 applyLabelEffect();
-

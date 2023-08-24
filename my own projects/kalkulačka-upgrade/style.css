@@ -480,6 +480,13 @@ img {
   transform: translateY(-30px);
 }
 
+#show-password-register,
+#show-password-login {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+}
+
 /* logout */
 
 .user-info {
@@ -497,6 +504,7 @@ img {
   color: var(--secondary-bg-color);
   text-align: center;
   padding: 3px 8px;
+  display: none;
 }
 
 .btn--logout {

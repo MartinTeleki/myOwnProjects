@@ -11,6 +11,11 @@ export class RegistrationManager {
     this.btnRegister = document.querySelector(".btn-register");
     this.historyContainer = document.querySelector(".history");
     this.registrationInfo = [];
+
+    this.showPasswordCheckbox = document.querySelector(
+      "#show-password-register"
+    );
+    this.passwordInput = document.querySelector("#register-password");
     console.log(this.registrationInfo);
 
     this.navLogin.addEventListener("click", (e) => {
@@ -38,6 +43,15 @@ export class RegistrationManager {
             `<span style="transition-delay:${index * 70}ms">${letter}</span>`
         )
         .join("");
+    });
+
+    this.showPasswordCheckbox.addEventListener("change", () => {
+      console.log("pes");
+      if (this.showPasswordCheckbox.checked) {
+        this.passwordInput.type = "text";
+      } else {
+        this.passwordInput.type = "password";
+      }
     });
   }
 }
