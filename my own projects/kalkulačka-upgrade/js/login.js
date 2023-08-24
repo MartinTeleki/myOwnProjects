@@ -77,10 +77,15 @@ export class LoginManager {
     const usernameData = this.registerName.value.toLowerCase();
     const passwordData = this.registerPassword.value;
 
+    if (this.isUsernameTaken(usernameData)) {
+      alert("This username is already taken.");
+      return;
+    }
+
     const userData = { username: usernameData, password: passwordData };
 
     if (!usernameData || !passwordData) {
-      alert("Vyplňte prosím jak jméno, tak heslo.");
+      alert("Please fill in both username and password.");
       return;
     }
 
@@ -89,17 +94,17 @@ export class LoginManager {
       passwordData.includes(" ") ||
       (usernameData.includes(" ") && passwordData.includes(" "))
     ) {
-      alert("Žádné mezery pls :).");
+      alert("No spaces allowed :).");
       return;
     }
 
     if (usernameData.length < 5 || usernameData.length > 12) {
-      alert("Jméno musí mít délku 5 až 12 znaků.");
+      alert("Username must be between 5 and 12 characters.");
       return;
     }
 
     if (passwordData.length < 5 || passwordData.length > 12) {
-      alert("Heslo musí mít délku 5 až 12 znaků.");
+      alert("Password must be between 5 and 12 characters.");
       return;
     }
 
@@ -133,5 +138,9 @@ export class LoginManager {
     this.passwordInput.value = "";
     this.welcomeText.textContent = "";
     this.welcomeMessage.style.display = "none";
+  }
+
+  isUsernameTaken(username) {
+    return this.loginInfo.some((info) => info.username === username);
   }
 }
