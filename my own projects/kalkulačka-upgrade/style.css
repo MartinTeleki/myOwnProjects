@@ -483,8 +483,9 @@ img {
 #show-password-register,
 #show-password-login {
   position: absolute;
-  left: 50%;
-  bottom: 50%;
+  bottom: 100%;
+  left: 100%;
+  width: 13px;
 }
 
 /* logout */
