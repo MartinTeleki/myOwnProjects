@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const writeNumber = document.querySelector(".input--text-1");
   const displayResult = document.querySelector(".result");
 
+  const calculatorApp = new CalculatorApp();
+  const loginManager = new LoginManager();
+  const registrationManager = new RegistrationManager();
   const historyManager = new HistoryManager(historyList);
   const calculatorEventManager = new CalculatorEventManager(
     historyManager,
@@ -24,11 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
     displayResult
   );
 
-  const registrationManager = new RegistrationManager();
-  const loginManager = new LoginManager();
-
   _applyLabelEffect();
-
-  const calculatorApp = new CalculatorApp();
   calculatorApp.initialize();
 });

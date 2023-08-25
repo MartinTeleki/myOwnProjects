@@ -45,7 +45,6 @@ export class CalculatorEventManager {
         if (symbol === "=") {
           this._performCalculation();
         } else if (symbol === "e.key") {
-          // Implement whatever logic you want for this case
         } else {
           this._appendSymbol(symbol);
         }
