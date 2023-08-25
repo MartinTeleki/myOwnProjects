@@ -18,6 +18,9 @@ export class LoginManager {
     this._welcomeText = document.querySelector(".welcome-message");
     this._showPasswordCheckbox = document.querySelector("#show-password-login");
     this._welcomeMessage = document.querySelector(".welcome-message");
+    this._historyText = document.querySelector(".history-div");
+    this._result = document.querySelector(".result");
+    this.inputText = document.querySelector(".input-text");
     this._loginInfo = [];
     this._loadLoginInfoFromStorage();
 
@@ -128,16 +131,19 @@ export class LoginManager {
   }
 
   _logout() {
+    this._inputText.textContent = "";
+    this._nameInput.value = "";
+    this._passwordInput.value = "";
+    this._welcomeText.textContent = "";
+    this._result.textContent = "";
     this._container2.style.display = "none";
     this._container.style.display = "none";
     this._btnLogout.style.display = "none";
     this._historyContainer.style.display = "none";
     this._container1.style.display = "block";
     this._container1.style.opacity = "1";
-    this._nameInput.value = "";
-    this._passwordInput.value = "";
-    this._welcomeText.textContent = "";
     this._welcomeMessage.style.display = "none";
+    this._historyText.style.display = "none";
   }
 
   _isUsernameTaken(username) {
