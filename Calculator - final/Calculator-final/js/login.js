@@ -143,7 +143,7 @@ export class LoginManager {
     this._container1.style.display = "block";
     this._container1.style.opacity = "1";
     this._welcomeMessage.style.display = "none";
-    this._historyText.style.display = "none";
+    // this._historyText.style.display = "none";
   }
 
   _isUsernameTaken(username) {

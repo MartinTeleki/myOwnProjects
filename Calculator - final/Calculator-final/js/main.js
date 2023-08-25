@@ -18,7 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
     displayResult
   );
 
-  calculatorEventManager._attachEventListeners();
+  calculatorEventManager._attachEventListeners(
+    historyManager,
+    writeNumber,
+    displayResult
+  );
 
   const registrationManager = new RegistrationManager();
   const loginManager = new LoginManager();

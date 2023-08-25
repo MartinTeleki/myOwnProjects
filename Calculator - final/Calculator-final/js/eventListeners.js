@@ -1,9 +1,3 @@
-export function attachEventListeners(
-  historyManager,
-  writeNumber,
-  displayResult
-) {}
-
 export class CalculatorEventManager {
   constructor(historyManager, writeNumber, displayResult) {
     this._historyManager = historyManager;
