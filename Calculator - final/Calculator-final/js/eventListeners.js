@@ -10,6 +10,18 @@ export class CalculatorEventManager {
     this._writeNumber = writeNumber;
     this._displayResult = displayResult;
 
+    this._historyContainer = document.querySelector(".history");
+    this._historyList = document.querySelector(".history-list");
+    this._writeNumber = document.querySelector(".input--text-1");
+    this._calculateResult = document.querySelector(".btn--result");
+    this._displayResult = document.querySelector(".result");
+    this._historyItems = this._historyList.querySelectorAll(".history-div");
+    this._equals = document.querySelector(".btn--equals");
+    this._inputText = document.querySelector(".input--text-1");
+    this._backNumber = document.querySelector(".btn--back");
+    this._deleteNumber = document.querySelector(".btn--delete");
+    this._closeButton = document.querySelector(".btn--close");
+
     this._buttons = [
       { element: document.querySelector(".btn--plus"), symbol: "+" },
       { element: document.querySelector(".btn--minus"), symbol: "-" },
@@ -69,7 +81,7 @@ export class CalculatorEventManager {
       this._displayResult.style.color = "black";
       this._displayResult.textContent = roundedResult;
       this._writeNumber.value = "";
-      this._historyManager.appendToHistory(roundedResult);
+      this._historyManager._appendToHistory(roundedResult);
     } catch (error) {
       this._writeNumber.value = "";
       this._displayResult.style.color = "red";

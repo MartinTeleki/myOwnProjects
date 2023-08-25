@@ -6,7 +6,7 @@ export class HistoryManager {
     this._resultCounter = 0;
   }
 
-  appendToHistory(result) {
+  _appendToHistory(result) {
     const writeNumber = document.querySelector(".input--text-1");
     const historyContainer = document.querySelector(".history");
     this._resultNumberElement = document.querySelector(".result-number");
@@ -38,9 +38,8 @@ export class HistoryManager {
       listItem.style.opacity = 1;
     }, delay);
   }
-  _;
 
-  clearHistory() {
+  _clearHistory() {
     this._previousResults.splice(0, this._previousResults.length);
     this._historyList.textContent = "";
   }

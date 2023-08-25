@@ -1,12 +1,13 @@
 import { RegistrationManager } from "./register.js";
-import { applyLabelEffect } from "./labelEffect.js";
+import { _applyLabelEffect } from "./labelEffect.js";
 import { LoginManager } from "./login.js";
 import { CalculatorEventManager } from "./eventListeners.js";
 import { HistoryManager } from "./history.js";
+import { CalculatorApp } from "./calculatorModule.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const historyList = document.querySelector(".history-list");
-
+  const historyPages = document.querySelectorAll(".history-page");
   const writeNumber = document.querySelector(".input--text-1");
   const displayResult = document.querySelector(".result");
 
@@ -19,9 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   calculatorEventManager._attachEventListeners();
 
-  const historyPages = document.querySelectorAll(".history-page");
   const registrationManager = new RegistrationManager();
   const loginManager = new LoginManager();
 
-  applyLabelEffect();
+  _applyLabelEffect();
+
+  const calculatorApp = new CalculatorApp();
+  calculatorApp.initialize();
 });
