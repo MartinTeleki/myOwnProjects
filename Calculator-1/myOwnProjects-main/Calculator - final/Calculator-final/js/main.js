@@ -4,10 +4,10 @@ import { LoginManager } from "./login.js";
 import { CalculatorEventManager } from "./eventListeners.js";
 import { HistoryManager } from "./history.js";
 import { CalculatorApp } from "./calculatorModule.js";
+import { Hours } from "./hours.js"; // Přidejte tento import
 
 document.addEventListener("DOMContentLoaded", () => {
   const historyList = document.querySelector(".history-list");
-
   const writeNumber = document.querySelector(".input--text-1");
   const displayResult = document.querySelector(".result");
 
@@ -30,3 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
   _applyLabelEffect();
   calculatorApp.initialize();
 });
+
+
+
